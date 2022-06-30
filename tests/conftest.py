@@ -12,6 +12,7 @@ def pytest_addoption(parser):
 def dask_client_fixture(request):
     n_workers = int(request.config.getoption("--dask_workers"))
     tpw = int(request.config.getoption("--dask_threads_pw"))
-    with LocalCluster(n_workers=n_workers, threads_per_worker=tpw) as cluster:
+    lc = LocalCluster
+    with lc(n_workers=n_workers, threads_per_worker=tpw) as cluster:
         with Client(cluster) as client:
             yield client
