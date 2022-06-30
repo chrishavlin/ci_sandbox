@@ -1,8 +1,6 @@
 import dask
 import numpy as np
-import pytest
-from dask.distributed import Client, Future, Scheduler, Worker
-from dask.distributed.utils_test import gen_cluster, inc
+
 
 from ci_sandbox import parallel_workflows
 
