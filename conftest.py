@@ -2,6 +2,16 @@ import pytest
 from dask import distributed
 
 
+# def pytest_configure(config):
+#     # in python >= 3.10, tornado (dask dependency). Fixed and merged upstream,
+#     # can remove with tornado 6.2 release:
+#     # https://github.com/tornadoweb/tornado/issues/3033
+#     config.addinivalue_line(
+#         "filterwarnings",
+#         "ignore:There is no current event loop:DeprecationWarning",
+#     )
+
+
 def pytest_addoption(parser):
     parser.addoption("--dask_workers", action="store", default=2)
     parser.addoption("--dask_threads_pw", action="store", default=1)
@@ -16,3 +26,6 @@ def dask_client_fixture(request):
     with lc(n_workers=n_workers, threads_per_worker=tpw) as cluster:
         with distributed.Client(cluster) as client:
             yield client
+
+
+
