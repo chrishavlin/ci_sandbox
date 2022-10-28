@@ -28,6 +28,7 @@ name: OctaveDocker
 on:
   push:
     paths:
+    - "**.m"
     - ".github/workflows/build-test-octavedocker.yml"
 
 jobs:
