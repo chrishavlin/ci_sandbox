@@ -13,7 +13,7 @@ jobs:
   linux:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout
+    - uses: actions/checkout@v2
     - name: Install dependencies
     - run: |
         sudo apt -yq update
