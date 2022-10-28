@@ -1,8 +1,12 @@
 # based on https://www.scivision.dev/windows-matlab-octave-continuous-integration/
 # docker would make sense
-name: octave
+name: Octave
 
-on: push
+on:
+  push:
+    paths:
+    - "**.m"
+    - ".github/workflows/build-test-octave.yml"
 
 jobs:
 
