@@ -108,3 +108,5 @@ ENV/
 
 test_cluster_dump
 dask-worker-space
+
+*.swp
