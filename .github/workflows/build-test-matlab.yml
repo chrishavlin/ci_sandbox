@@ -1,5 +1,10 @@
 name: Run MATLAB Script on GitHub-Hosted Runner
-on: [push]
+on:
+  push:
+    paths:
+    - "**.m"
+    - ".github/workflows/build-test-matlab.yml"
+
 jobs:
   my-job:
     name: Run MATLAB Script

@@ -1,5 +1,4 @@
-function topleveltester()
 
-	assert(2==2)
-
-end
+addpath("tests")
+test_hello_octave()
+test_hello_octave_fixed_error()
