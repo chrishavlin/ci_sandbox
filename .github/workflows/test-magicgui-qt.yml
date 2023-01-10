@@ -1,4 +1,4 @@
-name: magicgui tests
+name: magicgui_tests
 
 on:
   push:
