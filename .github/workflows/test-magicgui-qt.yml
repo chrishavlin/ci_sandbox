@@ -28,5 +28,11 @@ jobs:
     - name: Setup ci_sandbox
       run: |
         python -m pip install -e .
-    - name: Run Tests
-      run: pytest -s -v -rsfE
+
+    -   name: Test with xvfb
+        uses: GabrielBB/xvfb-action@v1
+        with:
+            run: |
+                pytest -s -v -rsfE
+        env:
+            PLATFORM: ${{ matrix.platform }}
