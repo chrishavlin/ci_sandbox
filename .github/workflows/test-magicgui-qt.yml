@@ -23,6 +23,7 @@ jobs:
     - name: Install test dependencies
       run: |
         python -m pip install --upgrade pip
+        python -m pip install -r requirements_dev.txt
         python -m pip install -r requirements_magic_qt.txt
     - name: Setup ci_sandbox
       run: |
