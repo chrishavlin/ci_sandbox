@@ -1,0 +1,46 @@
+## based on https://www.scivision.dev/windows-matlab-octave-continuous-integration/
+## docker would make sense
+#name: Octave
+#
+#on:
+#  push:
+#    paths:
+#    - "**.m"
+#    - ".github/workflows/build-test-octave.yml"
+#
+#jobs:
+#
+#  build:
+#    runs-on: ubuntu-latest
+#    steps:
+#    - uses: actions/checkout@v2
+#    - name: Install dependencies
+#      run: |
+#        sudo apt -yq update
+#        sudo apt install -yq --no-install-recommends octave
+#    - name: Check octave installation
+#      run: octave --eval "disp(version)"
+#    - name: Run octave tests
+#      run: octave --eval "addpath('tests'); run_octave_tests"
+#
+
+name: OctaveDocker
+on:
+  push:
+    paths:
+    - "**.m"
+    - ".github/workflows/build-test-octavedocker.yml"
+
+jobs:
+  container-test-job:
+    runs-on: ubuntu-latest
+    container:
+      image: gnuoctave/octave
+    steps:
+    - uses: actions/checkout@v2
+    - name: Check for dockerenv file
+      run: (ls /.dockerenv && echo Found dockerenv) || (echo No dockerenv)
+    - name: Check octave installation
+      run: octave --eval "disp(version)"
+    - name: Run octave tests
+      run: octave --eval "topleveltester"

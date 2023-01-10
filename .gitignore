@@ -110,3 +110,4 @@ test_cluster_dump
 dask-worker-space
 
 *.swp
+pip-wheel-metadata/
