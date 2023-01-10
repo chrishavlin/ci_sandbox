@@ -42,6 +42,7 @@ jobs:
       with:
         run: |
             export DISPLAY=:1.0
+            export QT_QPA_PLATFORM=offscreen
             pytest -s -v -rsfE
       env:
           PLATFORM: ${{ matrix.platform }}
