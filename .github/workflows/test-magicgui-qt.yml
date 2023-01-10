@@ -22,11 +22,13 @@ jobs:
         python-version: ${{ matrix.python-version }}
 
     - name: Install Linux Qt-related libraries
-      if: runner.os == 'Linux'
-      run: |
-            sudo apt-get install -y libdbus-1-3 libxkbcommon-x11-0 libxcb-icccm4 \
-              libxcb-image0 libxcb-keysyms1 libxcb-randr0 libxcb-render-util0 \
-              libxcb-xinerama0 libxcb-xinput0 libxcb-xfixes0
+      steps:
+          -   uses: tlambert03/setup-qt-libs@v1
+#      if: runner.os == 'Linux'
+#      run: |
+#            sudo apt-get install -y libdbus-1-3 libxkbcommon-x11-0 libxcb-icccm4 \
+#              libxcb-image0 libxcb-keysyms1 libxcb-randr0 libxcb-render-util0 \
+#              libxcb-xinerama0 libxcb-xinput0 libxcb-xfixes0
 
     - name: Install test dependencies
       run: |
