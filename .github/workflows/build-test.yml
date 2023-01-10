@@ -28,4 +28,4 @@ jobs:
       run: |
         python -m pip install -e .
     - name: Run Tests
-      run: pytest -s -v -rsfE
+      run: pytest ci_sandbox/tests/* -s -v -rsfE
