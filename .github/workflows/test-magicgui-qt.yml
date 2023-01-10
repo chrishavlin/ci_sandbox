@@ -42,5 +42,5 @@ jobs:
       with:
         run: |
             pytest -s -v -rsfE
-        env:
-            PLATFORM: ${{ matrix.platform }}
+      env:
+          PLATFORM: ${{ matrix.platform }}
